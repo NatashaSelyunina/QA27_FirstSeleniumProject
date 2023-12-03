@@ -61,18 +61,18 @@ public class FindElementsTests {
         driver.findElement(By.cssSelector(".logo"));
 
         // менять кавычки на одинарные/ пара ключ-значение
-        driver.findElement(By.cssSelector("[title='Weitrblattern'"));
+        driver.findElement(By.cssSelector("[title='Weiterblättern']"));
     }
 
     @Test
     public void findElementByXpath() {
         // -> //tag[@attr='value']
-        driver.findElement(By.xpath("//*[@title='Weitrblattern'"));
+        driver.findElement(By.xpath("//*[@title='Weiterblättern']"));
 
         //xpath by text, частичное совпадение текста
         driver.findElement(By.xpath("//label[contains(.,'Berlin, ich brauche Informationen zu:')]"));
 
-        //точное совпадения текста
+        //точное совпадение текста
         driver.findElement(By.xpath("//label[text()='Berlin, ich brauche Informationen zu:']"));
         driver.findElement(By.xpath("//label[.='Berlin, ich brauche Informationen zu:']"));
     }
