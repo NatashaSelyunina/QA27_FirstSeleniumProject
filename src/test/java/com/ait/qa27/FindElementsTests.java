@@ -30,10 +30,12 @@ public class FindElementsTests {
 
     @Test
     public void findElementsByTag() {
+        // если мы хотим распечатать текст (воспользоваться методом getText(), то нам нужно создать переменную
         // ищем элемент по тегу
         WebElement element = driver.findElement(By.tagName("h1"));
         System.out.println(element.getText());
 
+        // если мы хотим вывести размер списка в консоль, то нужно создать переменную
         // находим список элементов по тегу
         List<WebElement> elements = driver.findElements(By.tagName("a"));
         System.out.println(elements.size());
@@ -46,7 +48,7 @@ public class FindElementsTests {
         driver.findElement(By.className("logo"));
 
         // где есть ссылка (href)
-        driver.findElement(By.linkText("Aktuelle Medungen"));
+        driver.findElement(By.linkText("Aktuelle Meldungen"));
 
         // частичное совпадение
         driver.findElement(By.partialLinkText("Meldungen"));

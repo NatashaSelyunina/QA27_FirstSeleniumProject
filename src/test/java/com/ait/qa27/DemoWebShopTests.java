@@ -2,12 +2,14 @@ package com.ait.qa27;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class DemoWebShopTests {
     WebDriver driver;
@@ -22,11 +24,19 @@ public class DemoWebShopTests {
 
     @Test
     public void findElementsByCssSelector() {
-        driver.findElements(By.cssSelector("p"));
-        driver.findElement(By.cssSelector(".topic-html-content-body > p"));
+        List<WebElement> elements = driver.findElements(By.cssSelector("p"));
+        System.out.println(elements.size());
+        WebElement element = driver.findElement(By.cssSelector(".topic-html-content-body > p"));
+        System.out.println(element.getText());
         driver.findElement(By.cssSelector("#bar-notification"));
         driver.findElement(By.cssSelector("div.slider-wrapper.theme-default"));
         driver.findElement(By.cssSelector("[data-productid='72']"));
+        driver.findElement(By.cssSelector("#bar-notification > span"));
+        driver.findElement(By.cssSelector("div.header-logo"));
+        driver.findElement(By.cssSelector(".ico-register"));
+        driver.findElement(By.cssSelector("#flyout-cart.flyout-cart"));
+        driver.findElement(By.cssSelector("form"));
+        driver.findElement(By.cssSelector("[name='q']"));
     }
 
     @Test
@@ -37,6 +47,12 @@ public class DemoWebShopTests {
         driver.findElement(By.xpath(
                 "//div[contains(@class, 'slider-wrapper') and contains(@class, 'theme-default')]"));
         driver.findElement(By.xpath("//div[@data-productid='72']"));
+        driver.findElement(By.xpath("//span[@title='Close']"));
+        driver.findElement(By.xpath("//div[@class='header-logo']"));
+        driver.findElement(By.xpath("//a[contains(.,'Register')]"));
+        driver.findElement(By.xpath("//div[@id='flyout-cart']"));
+        driver.findElement(By.xpath("//form"));
+        driver.findElement(By.xpath("//input[@name='q']"));
     }
 
     @AfterMethod
