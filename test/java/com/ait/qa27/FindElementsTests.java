@@ -30,10 +30,12 @@ public class FindElementsTests {
 
     @Test
     public void findElementsByTag() {
+        // если мы хотим распечатать текст (воспользоваться методом getText(), то нам нужно создать переменную
         // ищем элемент по тегу
         WebElement element = driver.findElement(By.tagName("h1"));
         System.out.println(element.getText());
 
+        // если мы хотим вывести размер списка в консоль, то нужно создать переменную
         // находим список элементов по тегу
         List<WebElement> elements = driver.findElements(By.tagName("a"));
         System.out.println(elements.size());
@@ -46,7 +48,7 @@ public class FindElementsTests {
         driver.findElement(By.className("logo"));
 
         // где есть ссылка (href)
-        driver.findElement(By.linkText("Aktuelle Medungen"));
+        driver.findElement(By.linkText("Aktuelle Meldungen"));
 
         // частичное совпадение
         driver.findElement(By.partialLinkText("Meldungen"));
@@ -61,18 +63,18 @@ public class FindElementsTests {
         driver.findElement(By.cssSelector(".logo"));
 
         // менять кавычки на одинарные/ пара ключ-значение
-        driver.findElement(By.cssSelector("[title='Weitrblattern'"));
+        driver.findElement(By.cssSelector("[title='Weiterblättern']"));
     }
 
     @Test
     public void findElementByXpath() {
         // -> //tag[@attr='value']
-        driver.findElement(By.xpath("//*[@title='Weitrblattern'"));
+        driver.findElement(By.xpath("//*[@title='Weiterblättern']"));
 
         //xpath by text, частичное совпадение текста
         driver.findElement(By.xpath("//label[contains(.,'Berlin, ich brauche Informationen zu:')]"));
 
-        //точное совпадения текста
+        //точное совпадение текста
         driver.findElement(By.xpath("//label[text()='Berlin, ich brauche Informationen zu:']"));
         driver.findElement(By.xpath("//label[.='Berlin, ich brauche Informationen zu:']"));
     }

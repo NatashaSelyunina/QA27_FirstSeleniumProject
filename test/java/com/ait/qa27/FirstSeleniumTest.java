@@ -28,7 +28,8 @@ public class FirstSeleniumTest {
     }
 
     // after - tearDown
-    @AfterMethod(enabled = false) // тестовый метод с аннотацией не отрабатывал, то выставить атрибут у аннотации (enabled = false)
+    // тестовый метод с аннотацией не отрабатывал, то выставить атрибут у аннотации (enabled = false)
+    @AfterMethod(enabled = false)
     public void tearDown() {
         // driver.quit(); //закрывает браузер, все вкладки
         driver.close(); // закрывает только одну вкладку
