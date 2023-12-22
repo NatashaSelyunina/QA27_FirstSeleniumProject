@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends TestBase {
+public class LoginTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
@@ -15,24 +15,16 @@ public class CreateAccountTests extends TestBase {
     }
 
     @Test
-    public void registerPositiveUserTest() {
-        click(By.cssSelector("[href='/register']"));
-
-        click(By.cssSelector("[for='gender-female']"));
-
-        type(By.id("FirstName"), "Lana");
-
-        type(By.id("LastName"), "Larina");
+    public void LoginPositiveTest() {
+        click(By.cssSelector("[href='/login']"));
 
         type(By.id("Email"), "larina@mail.ru");
 
         type(By.id("Password"), "000333");
 
-        type(By.id("ConfirmPassword"), "000333");
+        click(By.id("RememberMe"));
 
-        click(By.id("register-button"));
-
-        click(By.cssSelector("[value='Continue']"));
+        click(By.cssSelector("[value='Log in']"));
 
         Assert.assertTrue(isElementPresent(By.cssSelector("[href='/logout']")));
     }
