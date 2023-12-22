@@ -1,9 +1,12 @@
 package com.ait.qa27;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class AddItemToCartTests extends TestBase {
 
@@ -30,6 +33,16 @@ public class AddItemToCartTests extends TestBase {
                 "0000172_build-your-own-cheap-computer_125.jpeg']"));
         click(By.id("add-to-cart-button-72"));
         click(By.xpath("//span[.='Shopping cart']"));
-        Assert.assertTrue(isElementPresent(By.cssSelector("[value='Continue shopping']")));
+        Assert.assertTrue(isItemCreatedByText("Build your own cheap computer"));
+    }
+
+    public boolean isItemCreatedByText(String text) {
+        List<WebElement> items = driver.findElements(By.cssSelector("a"));
+        for (WebElement element : items) {
+            if (element.getText().contains(text)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
